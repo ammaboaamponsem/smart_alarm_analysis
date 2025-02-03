@@ -1,0 +1,16 @@
+# 6. Visualizations and Dashboarding
+# Countplot for Distribution of Severity across the Asset types (UPS)
+plt.figure(figsize=(10, 6))
+sns.countplot(data=smart_alarm_df, x='AssetType', hue='Severity')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+# Countplot for AlarmLabel (top 10 most frequent)
+top_10_alarms = smart_alarm_df['AlarmLabel'].value_counts().head(10)
+plt.figure(figsize=(12, 6))
+sns.barplot(x=top_10_alarms.index, y=top_10_alarms.values)
+plt.title('Top 10 Most Frequent Alarm Labels')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
